@@ -11,12 +11,12 @@ def script(def Map vars) {
   def output
   try{
       if (returnStatus) {
-        output = sh(script: script,returnStatus: true)
+        output = bat(script: script,returnStatus: true)
       } else {
-        output = sh(script: script,returnStdout: true)
+        output = bat(script: script,returnStdout: true)
       }
   } finally {
-      CpsThread.current().head.get().addAction(new LabelAction("Shell script ${stepName} "))
+      CpsThread.current().head.get().addAction(new LabelAction("Batch script ${stepName} "))
   }
   return output
 }
